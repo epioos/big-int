@@ -1,7 +1,3 @@
-//
-// Created by tom-e on 28.01.2022.
-//
-
 #include "Zahl.h"
 #include <array>
 #include <string>

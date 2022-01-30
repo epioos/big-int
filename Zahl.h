@@ -1,7 +1,3 @@
-//
-// Created by tom-e on 28.01.2022.
-//
-
 #ifndef BIG_INT_ZAHL_H
 #define BIG_INT_ZAHL_H
 
