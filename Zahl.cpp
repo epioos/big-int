@@ -8,12 +8,15 @@ Zahl::Zahl() {
 }
 
 
-Zahl::Zahl(unsigned int initial_value) {
+Zahl::Zahl(uint32_t initial_value) {
     data_array.fill(0);
     data_array[0] = initial_value;
 }
 
 std::ostream &operator<<(std::ostream &os, const Zahl &number_out) {
+    for (auto it = number_out.data_array.rbegin(); it !=number_out.data_array.rend(); ++it){
+        os << std::hex << *it;
+    }
     return os;
 }
 
@@ -34,22 +37,28 @@ std::istream &operator>>(std::istream &is, Zahl &number_in) {
 
 Zahl Zahl::operator+(const Zahl &right) {
     Zahl result;
-    unsigned long int part_result;
+    uint64_t part_result;
+    uint32_t carry_over = 0;
     for (int i = 0; i < data_array.size(); ++i){
-        part_result = data_array[i] + right.data_array[i];
-        if(part_result > UINT32_MAX){
-
-        }
+        part_result = static_cast<uint64_t>(data_array[i]) + right.data_array[i] + carry_over;
+        carry_over = part_result / UINT32_MAX;
+        uint32_t value = part_result % UINT32_MAX;
+        result.data_array[i] = value;
     }
-    return Zahl();
+    return result;
 }
 
-Zahl Zahl::operator-(unsigned int right) {
-    return Zahl();
+Zahl Zahl::operator-(uint32_t right) {
+    if(*this < right){
+        throw std::runtime_error ("output be negative, type 'Zahl' does not support negative values");
+    }
+    Zahl result = data_array[0] - right;
+
+    return result;
 }
 
-Zahl Zahl::operator*(unsigned int right) {
-    return Zahl();
+Zahl Zahl::operator*(uint32_t right) {
+    return 0;
 }
 
 bool Zahl::operator==(const Zahl &right) {
@@ -66,7 +75,7 @@ bool Zahl::operator!=(const Zahl &right) {
 }
 
 bool Zahl::operator<(const Zahl &right) {
-    for (unsigned int i = data_array.size() - 1; i >= 0; --i) {
+    for (int32_t i = data_array.size() - 1; i >= 0; --i) {
         if (data_array[i] == right.data_array[i]) {
             continue;
         } else if (data_array[i] < right.data_array[i]) {
@@ -84,8 +93,8 @@ bool Zahl::operator>(const Zahl &right) {
 
 
 Zahl Zahl::factorial() {
-    return Zahl();
-}
+    return 0;
+  }
 
 
 

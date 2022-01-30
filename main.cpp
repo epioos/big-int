@@ -3,7 +3,7 @@
 #include "Zahl.h"
 
 int main() {
-    std::ifstream input_file;
+    /*std::ifstream input_file;
     input_file.open("../input.txt", std::ifstream::in);
     if(!input_file.is_open()){
         std::cerr << "Could not open the input file";
@@ -26,5 +26,10 @@ int main() {
         return -1;
     }
 
-    return 0;
+    return 0;*/
+
+    Zahl a = 3;
+    unsigned long int b = 5;
+    std::cout << a*b;
+
 }
