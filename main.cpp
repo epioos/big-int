@@ -3,7 +3,7 @@
 #include "Zahl.h"
 
 int main() {
-    /*std::ifstream input_file;
+    std::ifstream input_file;
     input_file.open("../input.txt", std::ifstream::in);
     if(!input_file.is_open()){
         std::cerr << "Could not open the input file";
@@ -26,10 +26,27 @@ int main() {
         return -1;
     }
 
-    return 0;*/
+    Zahl result;
+    switch (in_operator[0]) {
+        case '+':
+            result = zahl_one + zahl_two;
+            break;
+        case '-':
+            // todo warning if zahl_two to large
+            result = zahl_one - zahl_two.to_long_int();
+            break;
+        case '*':
+            result = zahl_one * zahl_two.to_long_int();
+            break;
+        case 'f':
+            result = zahl_one.factorial();
+            break;
+    }
+    std::cout << "Result: " <<result<<std::endl;
+    return 0;
 
-    Zahl a = 3;
-    unsigned long int b = 5;
-    std::cout << a*b;
+    //Zahl a = 3989999999;
+    //unsigned long int b = 999995963;
+    //std::cout << a*b;
 
 }

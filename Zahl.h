@@ -18,6 +18,7 @@ class Zahl {
         bool operator!= (const Zahl& right);
         bool operator< (const Zahl& right);
         bool operator> (const Zahl& right);
+        uint32_t to_long_int();
 
         Zahl factorial();
     private:

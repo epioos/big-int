@@ -2,6 +2,7 @@
 #include <array>
 #include <string>
 #include <vector>
+#include <iomanip>
 
 Zahl::Zahl() {
     data_array.fill(0);
@@ -14,8 +15,8 @@ Zahl::Zahl(uint32_t initial_value) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Zahl &number_out) {
-    for (auto it = number_out.data_array.rbegin(); it !=number_out.data_array.rend(); ++it){
-        os << std::hex << *it;
+    for (auto it = number_out.data_array.rbegin(); it != number_out.data_array.rend(); ++it) {
+        os << std::hex << std::setw(8) << std::setfill('0') << *it;
     }
     return os;
 }
@@ -26,7 +27,7 @@ std::istream &operator>>(std::istream &is, Zahl &number_in) {
     number_in = 0;
     for (char digit: string_to_convert) {
         if (isdigit(digit)) {
-            number_in = number_in * 10 + digit - '0';
+            number_in = number_in * 10 + (digit - '0');
         } else {
             throw std::runtime_error("Input string is not valid");
         }
@@ -39,7 +40,7 @@ Zahl Zahl::operator+(const Zahl &right) {
     Zahl result;
     uint64_t part_result;
     uint32_t carry_over = 0;
-    for (int i = 0; i < data_array.size(); ++i){
+    for (int i = 0; i < data_array.size(); ++i) {
         part_result = static_cast<uint64_t>(data_array[i]) + right.data_array[i] + carry_over;
         carry_over = part_result / UINT32_MAX;
         uint32_t value = part_result % UINT32_MAX;
@@ -49,8 +50,8 @@ Zahl Zahl::operator+(const Zahl &right) {
 }
 
 Zahl Zahl::operator-(uint32_t right) {
-    if(*this < right){
-        throw std::runtime_error ("output be negative, type 'Zahl' does not support negative values");
+    if (*this < right) {
+        throw std::runtime_error("output be negative, type 'Zahl' does not support negative values");
     }
     Zahl result = data_array[0] - right;
 
@@ -58,8 +59,17 @@ Zahl Zahl::operator-(uint32_t right) {
 }
 
 Zahl Zahl::operator*(uint32_t right) {
-    return 0;
+    Zahl result;
+    uint64_t part_result;
+    uint32_t carry_over = 0;
+    for (int i = 0; i < data_array.size(); ++i) {
+        part_result = static_cast<uint64_t>(data_array[i]) * right + carry_over;
+        carry_over = part_result / UINT32_MAX;
+        result.data_array[i] = part_result;
+    }
+    return result;
 }
+
 
 bool Zahl::operator==(const Zahl &right) {
     for (int i = 0; i < data_array.size(); ++i) {
@@ -80,7 +90,7 @@ bool Zahl::operator<(const Zahl &right) {
             continue;
         } else if (data_array[i] < right.data_array[i]) {
             return true;
-        } else{
+        } else {
             return false;
         }
     }
@@ -93,11 +103,19 @@ bool Zahl::operator>(const Zahl &right) {
 
 
 Zahl Zahl::factorial() {
-    return 0;
-  }
+    // 170 ist max
+    Zahl result = 1;
+    if (data_array[0] > 1){
+        for (uint32_t i = 1; *this > i || *this == i; ++i) {
+            result = result * i;
+        }
+    }
+    return result;
+}
 
-
-
+uint32_t Zahl::to_long_int() {
+    return data_array[0];
+}
 
 
 
