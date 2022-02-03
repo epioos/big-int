@@ -8,7 +8,7 @@
 
 int main() {
     std::ifstream input_file;
-    input_file.open("../test_cases/test1.txt", std::ifstream::in);
+    input_file.open("../test_cases/test8.txt", std::ifstream::in);
     if (!input_file.is_open()) {
         std::cerr << "Could not open the input file";
         return -1;
