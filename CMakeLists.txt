@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.5)
 project(big_int)
 
 set(CMAKE_CXX_STANDARD 14)

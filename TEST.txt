@@ -1,0 +1,77 @@
+##################################################################################
+#                         Um die Fälle zu testen ist in der                      #
+#                          main.cpp in der mainfunction der                      #
+#                         filename zu entsprechend zu ändern                     #
+##################################################################################
+
+
+TEST1:
+Einlesen eines leeren Dokuments
+Erwartete Ausagabe:
+    Result:
+    this operator is not supported
+----------------------------------------------------------------------------------
+TEST2
+Einlesen eines Dokuments, wo nur ein Operator enthalten ist
+Erwartete Ausagabe:
+    Result:
+----------------------------------------------------------------------------------
+TEST3
+Einlesen eines Dokuments, wo nur ein Zahl enthalten ist
+Erwartete Ausagabe:
+    Result:
+    this operator is not supported
+----------------------------------------------------------------------------------
+TEST4
+Einlesen eines Dokuments, wo 4 Zahlen enthalten sind
+Erwartete Ausagabe:
+    Result:
+    this operator is not supported
+----------------------------------------------------------------------------------
+TEST5
+Einlesen eines Dokuments, wo eine valide Operation am Anfang steht, aber noch etwas
+dahinter, und 2 valide Zahlen auf diese Operation
+Erwartete Ausagabe:
+    Result: result - das Programm führt normal aus
+                     und ignoriert Zeichen nach dem Operator)
+----------------------------------------------------------------------------------
+TEST6
+Einlesen eines Dokuments, wo ein valider Operator und eine valide Zahl enthalten
+ist, die zweite Zahl fehlt
+Erwartete Ausagabe:
+    Result: result - die fehlende Zahl wird durch eine 0 ersetzt
+----------------------------------------------------------------------------------
+TEST7
+Einlesen eines Dokuments - Eingabe einer Validen Zahl und eines validen Operators
+Erwartete Ausagabe:
+    Result:
+    Output number would be to large for this datatype, please input a number <= 170
+----------------------------------------------------------------------------------
+TEST8
+Einlesen eines Dokuments - Eingabe einer Validen Zahl und eines validen Operators
+Erwartete Ausagabe:
+    Result:0a55bc3220c31c79101dd27c41796361db82df9bf1799813a570336f069bcdaf69b2caa
+           90b1ca1b4fb7ac6808335bb9708f237e3b478f4165986d71ecda44dc3ddeb5f7ff6506d
+           e25b1b0a4968fedee5b437bfa85f518687636d34d2d682147de89fd69dd7c400cd3f493
+           7c00000000000000000000000000000000000000000
+----------------------------------------------------------------------------------
+TEST9
+Einlesen eines Dokuments - Eingabe zwei valider Zahlen und Operator +
+Erwartete Ausagabe:
+    Result: 000000012466d7116d203fee
+----------------------------------------------------------------------------------
+TEST10
+Einlesen eines Dokuments - Eingabe zwei valider Zahlen und Operator -
+Erwartete Ausgabe:
+    Result: 0000000f113bbe64
+----------------------------------------------------------------------------------
+TEST11
+Einlesen eines Dokuments - Eingabe zwei valider Zahlen und Operator -,
+aber Zahl 2 ist größer als Zahl 1
+Erwartete Ausgabe:
+    Result: output would be negative, type 'Zahl' does not support negative values
+----------------------------------------------------------------------------------
+TEST12
+Einlesen eines Dokuments - Eingabe zwei valider Zahlen und Operator *
+Erwartete Ausgabe:
+    Result: 001b20c3454f243add11efe9ba05ec7dd752d25d
