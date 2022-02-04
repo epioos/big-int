@@ -70,7 +70,7 @@ Zahl Zahl::operator+(const Zahl &user_input) {
     Zahl result;
     uint64_t part_result = 0;
     uint32_t carry_over = 0;
-    for (int i = 0; i < data_array.size(); ++i) {
+    for (unsigned int i = 0; i < data_array.size(); ++i) {
         part_result = static_cast<uint64_t>(data_array[i]) + user_input.data_array[i] + carry_over;
         carry_over = part_result >> 32;
         uint32_t value = part_result & 0xffffffff;
@@ -96,7 +96,7 @@ Zahl Zahl::operator*(uint32_t user_input) {
     Zahl result;
     uint64_t part_result;
     uint32_t carry_over = 0;
-    for (int i = 0; i < data_array.size(); ++i) {
+    for (unsigned int i = 0; i < data_array.size(); ++i) {
         part_result = static_cast<uint64_t>(data_array[i]) * user_input + carry_over;
         carry_over = part_result / UINT32_MAX;
         result.data_array[i] = part_result;
@@ -108,7 +108,7 @@ Zahl Zahl::operator*(uint32_t user_input) {
  * compares every part of data_array an checks if all are the same
  */
 bool Zahl::operator==(const Zahl &user_input) {
-    for (int i = 0; i < data_array.size(); ++i) {
+    for (unsigned int i = 0; i < data_array.size(); ++i) {
         if (data_array[i] != user_input.data_array[i]) {
             return false;
         }
