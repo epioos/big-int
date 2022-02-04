@@ -6,9 +6,13 @@
  * reading an operator from file and executing the operator on that given number(s)
  */
 
-int main() {
+int main(int argc, char** argv) {
+    if (argc != 2){
+        std::cerr<<"Usage: Please input a filename of this directory"<<std::endl;
+        return -1;
+    }
     std::ifstream input_file;
-    input_file.open("../test8.txt", std::ifstream::in);
+    input_file.open(argv[1], std::ifstream::in);
     if (!input_file.is_open()) {
         std::cerr << "Could not open the input file";
         return -1;
