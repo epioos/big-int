@@ -8,7 +8,7 @@
 
 int main(int argc, char** argv) {
     if (argc != 2){
-        std::cerr<<"Usage: Please input a filename of this directory"<<std::endl;
+        std::cerr<<"Usage: big_int <filename>"<<std::endl;
         return -1;
     }
     std::ifstream input_file;
