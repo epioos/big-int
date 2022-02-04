@@ -28,7 +28,7 @@ uint32_t Zahl::to_long_int() {
 }
 
 /**
- * rendering dara_array to an hex number and write it to os
+ * rendering dara_array as an hex number and write it to os
  */
 std::ostream &operator<<(std::ostream &os, const Zahl &number_out) {
     bool first_digit = false;
@@ -64,7 +64,7 @@ std::istream &operator>>(std::istream &is, Zahl &user_in) {
 
 /**
  * iterating over array which is stored in 'Zahl', addition on every part of the array and
- * add carry over tot he next part of the array
+ * add carry over to the next part of the array
  */
 Zahl Zahl::operator+(const Zahl &user_input) {
     Zahl result;

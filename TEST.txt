@@ -1,7 +1,7 @@
 ##################################################################################
-#                         Um die Fälle zu testen ist in der                      #
-#                          main.cpp in der mainfunction der                      #
-#                         filename zu entsprechend zu ändern                     #
+#          Bei dem compilieren ist der Name des Eingabe files erfolderlich       #
+#                       Eingabe in hex (ohne 0x am Anfang)                       #
+#                               Ausgabe in hex                                   #
 ##################################################################################
 
 

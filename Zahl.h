@@ -21,7 +21,7 @@ public:
     Zahl(uint32_t initial_value);
 
     /**
-     * Overload of the std::cout - rights the number to and output stream (console)
+     * Overload of the std::cout - rights the number to and output stream (console) - in hex
      * @param os stream to output to
      * @param number_out number to output
      * @return ostream -> modified ostream
@@ -29,7 +29,7 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Zahl &number_out);
 
     /**
-     * Overload of the std::cin - reads inputs from an instream (file)
+     * Overload of the std::cin - reads inputs from an instream (file) - in hex
      * @param is input stream to read from
      * @param user_in the operator or number the user puts in
      * @return istream -> modified instream
@@ -100,7 +100,6 @@ private:
      * declares an array of 32x unint32_t
      */
     std::array<uint32_t, 32> data_array;
-
 };
 
 #endif //BIG_INT_ZAHL_H
