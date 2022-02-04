@@ -32,14 +32,16 @@ TEST5
 Einlesen eines Dokuments, wo eine valide Operation am Anfang steht, aber noch etwas
 dahinter, und 2 valide Zahlen auf diese Operation
 Erwartete Ausagabe:
-    Result: result - das Programm führt normal aus
-                     und ignoriert Zeichen nach dem Operator)
+    Result: 230
+das Programm führt normal aus
+und ignoriert Zeichen nach dem Operator)
 ----------------------------------------------------------------------------------
 TEST6
 Einlesen eines Dokuments, wo ein valider Operator und eine valide Zahl enthalten
 ist, die zweite Zahl fehlt
 Erwartete Ausagabe:
-    Result: result - die fehlende Zahl wird durch eine 0 ersetzt
+    Result: 150
+die fehlende Zahl wird durch eine 0 ersetzt
 ----------------------------------------------------------------------------------
 TEST7
 Einlesen eines Dokuments - Eingabe einer Validen Zahl und eines validen Operators
